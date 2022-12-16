@@ -4,9 +4,14 @@ class GeolocationPolicy < ApplicationPolicy
     def resolve
       scope.where(user: user)
     end
-
-    def create?
-      true
-    end
   end
+
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
 end

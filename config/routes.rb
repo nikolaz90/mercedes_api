@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :geolocations, only: [ :index, :create ]
+      resources :geolocations, only: [ :index, :new, :create ]
     end
   end
 

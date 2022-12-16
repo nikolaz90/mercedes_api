@@ -3,12 +3,18 @@ class Api::V1::GeolocationsController < Api::V1::BaseController
     @geolocations = policy_scope(Geolocation)
   end
 
-  def create
-    @geolocation = Geolocation.new(geolocation_params)
+  def new
+    @geolocation = Geolocation.new(long: params[:long], lat: params[:lat])
     @geolocation.user = current_user
     authorize @geolocation
-    raise
   end
+
+  # def create
+  #   @geolocation = Geolocation.new(geolocation_params)
+  #   @geolocation.user = current_user
+  #   authorize @geolocation
+  #   raise
+  # end
 
   private
 
